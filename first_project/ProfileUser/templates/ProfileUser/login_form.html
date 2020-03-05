@@ -1,0 +1,38 @@
+{% extends 'ProfileUser/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Login</h2>
+<form action="{% url 'log' %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    	{{ field.label_tag }}
+    	{{ field }}
+    {% endfor %}
+    <!-- <table class="form">
+    {{form.as_table}}
+
+ 	</table> -->
+ 	{{ error }}
+<input type="submit" value="Submit" class="btn" />
+</form>
+
+<!-- <h2>Flask Web Form</h2>
+<form action="" method="post" role="form">
+    {{ form.csrf }}
+<div class="form-group">
+      <label for="username">Name:</label>
+<input type="text" class="form-control" id="username" name="username" placeholder="What's your name?">
+ 
+
+ 
+<label for="password">Password:</label>
+<input type="password" class="form-control" id="password" name="password" placeholder="Enter a password.">
+
+<label for="otp">otp:</label>
+<input type="text" class="form-control" id="otp" name="otp" placeholder="Your email will be used to contact you.">
+ 
+</div>
+<button type="submit" class="btn btn-success">Sign Up</button>
+</form> -->
+	
+{% endblock %}

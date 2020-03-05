@@ -1,0 +1,139 @@
+{% extends 'User_Profile/base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu">
+	<div class="container">
+	   
+			<div class="left-menu">
+				<ul>
+					<li>
+						Welcome:{{ user.username}}    
+					</li>
+					<li>
+						<a href="{% url 'login' %}">Home</a>
+					</li>
+				</ul>  
+			</div>
+				
+			<div class="right-menu">
+				<ul>
+					<li>
+						<a href="{% url 'view' %}">My Account</a>
+					</li>
+					<li>
+						<a href="{% url 'update' %}">Update Image</a>
+					</li>
+					<li>
+						<a href="{% url 'showcart' %}">Cart</a>
+					</li>
+					<li>
+						<a href="{% url 'delete' %}">Delete Account</a>
+					</li>
+					<li>
+						<a href="{% url 'logout' %}">logout</a>
+					</li>
+
+				</ul>  
+			</div>   
+		
+	</div> 
+</div>
+<input name="csrfmiddlewaretoken" value="{{ csrf_token }}" type="hidden">
+<div class="items_list">
+{% if cart_list %}
+	                           
+		<div class="container">
+			<div class="featured_products">
+            <h2>Cart Items</h2>
+        	</div>
+        <table>
+        	<th class="name_table">Product</th>
+        	<th class="name_table">Product Name</th>
+        	<th class="name_table">Price</th>
+        	<th class="name_table">quantity</th>
+        	<th class="name_table">Remove</th>
+
+		 <div class="row">
+		 	{% for c in cart_list %}
+				<tr class="remove_id">
+	             <td><div class="col-md-3 col-sm-6">
+	                <div class="product_img">
+
+	                   <img src="{{ c.item.picture.url }}" class="img_width">
+	                   
+	                </div>
+
+	            </div>
+	        	</td> 
+	        	<div class="col-md-3 col-sm-6">
+		        	<td>
+		        		<div class="item_name">{{c.item.prodcut_name}}</div>
+		        	</td>
+		        </div>	
+	            <td>
+	            <div class="col-md-3 col-sm-6">
+	            	{{c.item.price}}
+	           	</div> 
+
+
+	            </td>
+	        	
+	        		<td><div class="Quantity">
+	        			
+	       						 <div class="q" id="{{ c.id }}">
+	                                    <button class="down"><i class="fa fa-minus" aria-hidden="true"></i></button>
+	                                    <input type="text" class="myNumber{{ c.id }} q_number" value="{{c.quantity}}">
+	                                    <button class="up"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+	                                </div>
+	                    
+	                    </div>            
+	                                 
+	                </td>
+	                <td>                
+	                    <div class="remove" id="remove_{{ c.id }}">
+						<a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true">
+						</span></a>
+						</div>   
+	            		
+	          		</td>
+
+
+	          		
+          		{% endfor %}
+
+                </div>
+        	</tr>
+    
+           
+        </div>
+        </table> 
+        
+        <div class="row">
+        	<div class="col-md-4">
+        		<div class="checkout_color">
+					<a href="{% url 'product' %}"><h2>Continue shopping</h2></a>
+				</div>
+        	</div>
+        	<div class="col-md-8">
+        		<div class="col-md-6">
+        			<h2 id="total">Total:&#8377;{{total}}</h2>
+        		</div>
+        		<div class="col-md-6">
+        			
+        			<div class="checkout_colorp empty">
+				        <a href="{% url 'checkout' %}"><h2>Procced to checkout</h2></a>
+				    </div>
+        		</div>
+        	</div>
+        </div>
+        
+        
+    </div>      
+								
+	
+           	
+{% endif %}
+</div>
+
+{% endblock %}

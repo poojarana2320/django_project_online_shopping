@@ -1,0 +1,39 @@
+{% extends 'test_app/base.html' %}
+
+{% block content %}
+	{% if author %}
+	        <ul>
+	        	<div class="center">
+	        	<h2>author</h2>
+	            {% load static %}
+					<img src="{% static 'test_app/images/book.png' %}">	
+				</div>	
+	            <div class="row">
+					<div class="col-md-12">
+						<div class="block">
+						
+							<div class="title">
+							Authors are:
+							</div>
+		                    
+								{% for a in author %}
+								<div class="col-md-4">
+									<div class="des">
+						            	<li class="none">First_name:{{a.first_name}}</li>
+						            	<li class="none"> Last_name:{{a.lat_name}} </li>
+						            	<li class="none">Email:{{a.Email}} </li>
+						            	<li class="none">age:{{a.age}}</li>
+						            	<li class="none"> Gender:{{a.gender}}</li>
+						            </div>	
+					        	</div>
+					            {% endfor %}
+
+                		</div>
+					</div>
+
+
+				</div>
+	            
+	        </ul>
+	{% endif %}
+{% endblock %}	

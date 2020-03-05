@@ -1,0 +1,38 @@
+{% extends 'test_app/base.html' %}
+
+{% block content %}
+	{% if book %}
+	        <ul>
+	        	<div class="center">
+	        	<h2>Book</h2>
+	            {% load static %}
+					<img src="{% static 'test_app/images/book.png' %}">	
+				</div>	
+	            <div class="row">
+					<div class="col-md-12">
+						<div class="block">
+						
+							<div class="title">
+							Books are:
+							</div>
+		                    
+								{% for b in book %}
+								<div class="col-md-4">
+									<div class="des">
+						            	<li class="none">Title:{{b.Title}}</li>
+						            	<li class="none"> Publishers:{{b.Publishers}} </li>
+						            	<li class="none">Authors:{{b.Authors}} </li>
+						            	<li class="none"> Publications_date:{{b.Publications_date}}</li>
+						            </div>
+						        </div>    	
+					            {% endfor %}
+
+                		</div>
+					</div>
+
+
+				</div>
+	            
+	        </ul>
+	{% endif %}
+{% endblock %}	

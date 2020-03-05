@@ -1,0 +1,56 @@
+{% extends 'User_Profile/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="menu">
+		<div class="container">
+		   
+			<div class="left-menu">
+			  <ul>
+				<li>
+				  Welcome:{{ user.username}}    
+				</li>
+			  </ul>  
+			</div>
+			  
+			<div class="right-menu">
+					<ul>
+							<li>
+								<a href="{% url 'view' %}">My Account</a>
+							</li>
+							<li>
+								<a href="{% url 'update' %}">Update Image</a>
+							</li>
+							<li>
+								<a href="{% url 'showcart' %}">Cart</a>
+							</li>
+							<li>
+								<a href="{% url 'delete' %}">Delete Account</a>
+							</li>
+							<li>
+								<a href="{% url 'logout' %}">logout</a>
+							</li>
+		
+						</ul>  
+			</div>   
+		  
+		</div> 
+	  </div>
+
+<h2>Update Profile Image </h2>
+<form onsubmit="return validtionform()" action="{% url 'update' %}" method="post"  enctype="multipart/form-data"> 
+	
+		    {% csrf_token %}
+		    {% for field in form %}
+		    	{{ field.label_tag }}
+		    	{{ field }}
+		    	<span id="span_{{ field.name }}"></span>
+		    	{{ field.errors }}
+		    {% endfor %}
+		 	{{ error }}
+		 	<!-- <input id="id_profile_image1" name="profile_image1" type="file"> -->
+		
+<input type="submit" value="Submit" class="btn" />
+</form>
+
+{% endblock %}

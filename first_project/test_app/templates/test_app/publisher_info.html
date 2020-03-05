@@ -1,0 +1,40 @@
+{% extends 'test_app/base.html' %}
+
+{% block content %}
+	{% if publisher %}
+	        <ul>
+	        	<div class="center">
+	        	<h2>Publishers</h2>
+	            {% load static %}
+					<img src="{% static 'test_app/images/book.png' %}">	
+				</div>	
+	            <div class="row">
+					<div class="col-md-12">
+						<div class="block">
+						
+							<div class="title">
+							Publishers are:
+							</div>
+		                    
+								{% for p in publisher %}
+								<div class="col-md-4">
+									<div class="des">
+						            	<li class="none">Name:{{p.Name}}</li>
+						            	<li class="none"> Address:{{p.Address}} </li>
+						            	<li class="none">City:{{p.City}} </li>
+						            	<li class="none">State:{{p.State}}</li>
+						            	<li class="none"> Country:{{p.Country}}</li>
+						            	<li class="none"> Website:{{p.Website}}</li>
+						            </div>	
+					        	</div>
+					            {% endfor %}
+
+                		</div>
+					</div>
+
+
+				</div>
+	            
+	        </ul>
+	{% endif %}
+{% endblock %}	

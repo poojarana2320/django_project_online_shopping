@@ -1,0 +1,21 @@
+.form_input
+{
+	background:transparent;width:100%;line-height:45px;height:45px;color:black;border:1px solid #cbcbcb;padding-left:10px;margin-bottom: 15px;display: inline-block;width: 100%;
+}
+.form_textarea
+{
+	margin-bottom: 20px;
+}
+label{font-size: 14px;line-height: 45px;font-weight: 400;width: 100%;display: inline-block;}
+
+.btn{background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+width:180px; }

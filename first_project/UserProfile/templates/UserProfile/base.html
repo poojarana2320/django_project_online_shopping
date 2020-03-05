@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'UserProfile/css/style.css' %}">
+        <link href="{% static 'UserProfile/css/bootstrap.css' %}" rel="stylesheet">
+        <script type="text/javascript" src="{% static 'UserProfile/js/jquery-1.12.4.min.js'%}""></script>
+        <script src="{% static 'UserProfile/js/bootstrap.js'%}" type="text/javascript"></script>   
+        <script type="text/javascript" src="{% static 'UserProfile/js/style.js'%}""></script>
+         
+        <meta charset="UTF-8">
+        <title>My Project</title>
+
+    </head>
+
+    <body>
+        <div class="container center">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

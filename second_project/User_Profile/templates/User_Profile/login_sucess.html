@@ -1,0 +1,104 @@
+
+{% extends 'User_Profile/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="menu">
+	<div class="container">
+	   
+			<div class="left-menu">
+				<ul>
+					<li>
+						Welcome:{{ user.username}}    
+					</li>
+					<li>
+						<a href="{% url 'login' %}">Home</a>
+					</li>
+
+				</ul>  
+			</div>
+				
+			<div class="right-menu">
+				<ul>
+					<li>
+						<a href="{% url 'view' %}">My Account</a>
+					</li>
+					<li>
+						<a href="{% url 'update' %}">Update Image</a>
+					</li>
+					<li>
+						<a href="#">Cart</a>
+					</li>
+					<li>
+						<a href="{% url 'delete' %}">Delete Account</a>
+					</li>
+					<li>
+						<a href="{% url 'logout' %}">logout</a>
+					</li>
+
+				</ul>  
+			</div>   
+		
+	</div> 
+</div>
+	
+
+{% if product_info %}
+	                           
+	{% for p in product_info %}
+		<div class="container">
+			<div class="featured_products">
+            <h2>FEATURED PRODUCTS</h2>
+        	</div>
+		 <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="product_img">
+                    <img src="../media/{{ user.product.picture }}" class="img_width">
+                    
+                    <div class="hover-layer">
+                            <div class="hover_btn">
+                                <button class="btn2"><i class="fa fa-shopping-cart"></i>&nbsp ADD TO CART</button>
+                            </div>
+                    </div>   
+                </div>
+            </div>
+        </div>  
+    </div>      
+								
+	{% endfor %}
+           	
+{% endif %}	
+<!-- <div class="view">Hello! {{user.username}}
+		<div class="details">
+		  <form action="{% url 'view' %}" method="post">
+					<div class="image_p"
+					  <li class="none"><strong><img src="../media/{{ user.registration.profile_image }}"></img></strong></li>
+					</div>
+					<div class="info_p">
+					  <ul>
+					  <li class="none">Username: <strong>{{ user.username }}</strong></li>
+	  
+					  <li class="none">First_name: <strong>{{ user.first_name }}</strong></li>
+	  
+					  <li class="none">last_name: <strong>{{ user.last_name }}</strong></li>
+	  
+					  <li class="none">email: <strong>{{ user.email }}</strong></li>
+	  
+					  <li class="none">mobileno: <strong>{{ user.registration.mobileno }}</strong></li>
+	  
+					  <li class="none">address: <strong>{{ user.registration.address }}</strong></li>
+	  
+					  <li class="none">Country: <strong>{{ user.registration.country }}</strong></li>
+					</ul>  
+					</div>
+					
+				   
+		  </form>
+		</div>
+	  </div> -->
+<!-- <div class="Update"><a href="{% url 'update' %}">Update Image</a></div>
+
+<div class="Delete"><a href="{% url 'delete' %}">Delete Account</a></div> -->
+
+
+{% endblock %}

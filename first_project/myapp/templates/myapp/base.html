@@ -1,0 +1,17 @@
+<html>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/style.css' %}">
+        <link href="{% static 'myapp/css/bootstrap.css' %}" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>My Project</title>
+    </head>
+
+    <body>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

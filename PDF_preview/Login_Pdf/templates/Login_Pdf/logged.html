@@ -1,0 +1,40 @@
+{% extends 'Login_Pdf/base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu">
+	<div class="container">
+	   
+			<div class="left-menu">
+				<ul>
+					<li>
+						{{ user.email}}    
+					</li>
+					<li>
+						<a href="#">Home</a>
+					</li>
+				</ul>  
+			</div>
+				
+			<div class="right-menu">
+				<ul>
+					<li>
+						<a href="{% url 'upload' %}">Upload file</a>
+					</li>
+					<li>
+						<a href="{% url 'logout' %}">logout</a>
+					</li>
+
+				</ul>  
+			</div>   
+		
+	</div> 
+</div>
+
+
+<div class="image_p">
+	../media/{{ MEDIA_URL }}{{ user.signup.upload_file }}
+	<embed src="../media/{{ MEDIA_URL }}{{ user.signup.upload_file }}" width="800px" height="2100px" />
+      <!-- {{ user.signup.upload_file }}"> -->
+</div>
+
+{% endblock %}

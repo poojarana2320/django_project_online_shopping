@@ -1,0 +1,74 @@
+{% extends 'User_Profile/base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu">
+	<div class="container">
+	   
+			<div class="left-menu">
+				<ul>
+					<li>
+						Welcome:{{ user.username}}    
+					</li>
+					<li>
+						<a href="{% url 'login' %}">Home</a>
+					</li>
+				</ul>  
+			</div>
+				
+			<div class="right-menu">
+				<ul>
+					<li>
+						<a href="{% url 'view' %}">My Account</a>
+					</li>
+					<li>
+						<a href="{% url 'update' %}">Update Image</a>
+					</li>
+					<li>
+						<a href="{% url 'showcart' %}">Cart</a>
+					</li>
+					<li>
+						<a href="{% url 'delete' %}">Delete Account</a>
+					</li>
+					<li>
+						<a href="{% url 'logout' %}">logout</a>
+					</li>
+
+				</ul>  
+			</div>   
+		
+	</div> 
+</div>
+	
+{% if cart %}
+
+	
+			<div class="info_c">
+                 
+ 				<table>
+ 					<th class="name_table">Name</th>
+ 					<th class="name_table">Total</th>
+ 				</table>
+ 				<div class="row">    
+ 					<div class="col-md-6 name">  
+		 				<tr>           
+		                  <td>{{ user.username }}</td>
+		   				</tr> 
+	   				</div>
+	   				<div class="col-md-6">
+		   				<tr>
+		   					<td><h2 id="total" class="total">&#8377;{{cart.total}}</h2></td>
+		   				</tr>
+		   			</div>	
+	   			</div>	
+            </div>
+			
+	<div class="row">
+		<div class="col-md-12">
+			<a href="{% url 'pay' cart_id=cart.id  %}"><button class="btn3">&nbsp PAY</button></a>
+		</div>	
+	</div>
+	<!-- <button class="pay"><a href="{% url 'pay' cart_id=cart.id %}">Pay</a></button> -->
+{% endif %}	
+
+
+{% endblock %}

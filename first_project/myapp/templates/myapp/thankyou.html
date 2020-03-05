@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<h2>Response Entered by you!</h2>
+
+<form method="post">
+
+            <ul>
+            <li>Name: <strong>{{ Name }}</strong></li>
+
+            <li>Email_id: <strong>{{ Email_id }}</strong></li>
+
+            <li>Age: <strong>{{ Age }}</strong></li>
+
+            <li>Feedback: <strong>{{ Feedback }}</strong></li>
+
+            <li>Food_Quality: <strong>{{ Food_Quality }}</strong></li>
+
+            <li>Location_Visited: <strong>{{ Location_Visited }}</strong></li>
+
+          </ul>
+</form>
+
+{% endblock %}	

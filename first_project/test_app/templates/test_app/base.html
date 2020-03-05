@@ -1,0 +1,24 @@
+
+<html>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'test_app/css/style.css' %}">
+        <link href="{% static 'test_app/css/bootstrap.css' %}" rel="stylesheet">
+        <title>My Project</title>
+    </head>
+
+    <body>
+        <div class="page-header">
+            <h1 class="header_center"><a href="#">Book Information</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-12">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

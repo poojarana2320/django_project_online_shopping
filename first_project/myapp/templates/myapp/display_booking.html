@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<h2>Thank You</h2>
+
+<table>
+    {% for item in air %}
+    <tr>
+        <td><b>Name:</b>{{ item.Name }}</td>
+        <td><b>Email_id:</b> {{ item.Email_id}}</td>
+        <td><b>Age:</b> {{ item.Age }}</td>
+        <td><b>Address:</b> {{ item.Address }}</td>
+        <td><b>Mobile:</b> {{ item.Mobile }}</td>
+        <td><b>Travel_From_Date:</b> {{ item.Travel_From_Date }}</td>
+        <td><b>Travel_To_Date:</b> {{ item.Travel_To_Date }}</td>
+        <td><b>Travel_From:</b> {{ item.Travel_From }}</td>
+        <td><b>Travel_To:</b> {{ item.Travel_To }}</td>
+        <td><b>No_of_person:</b> {{ item.No_of_person }}</td>
+    </tr>
+    <tr>
+    {% endfor %}
+</table>
+
+{% endblock %}	
+

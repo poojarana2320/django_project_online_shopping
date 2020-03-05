@@ -1,0 +1,72 @@
+{% extends 'User_Profile/base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu">
+	<div class="container">
+	   
+			<div class="left-menu">
+				<ul>
+					<li>
+						Welcome:{{ user.username}}    
+					</li>
+					<li>
+						<a href="{% url 'login' %}">Home</a>
+					</li>
+				</ul>  
+			</div>
+				
+			<div class="right-menu">
+				<ul>
+					<li>
+						<a href="{% url 'view' %}">My Account</a>
+					</li>
+					<li>
+						<a href="{% url 'update' %}">Update Image</a>
+					</li>
+					<li>
+						<a href="{% url 'showcart' %}">Cart</a>
+					</li>
+					<li>
+						<a href="{% url 'delete' %}">Delete Account</a>
+					</li>
+					<li>
+						<a href="{% url 'logout' %}">logout</a>
+					</li>
+
+				</ul>  
+			</div>   
+		
+	</div> 
+</div>
+	
+{% if product_info %}
+	                           
+	
+		<div class="container">
+			<div class="featured_products">
+            <h2>FEATURED PRODUCTS</h2>
+        	</div>
+
+		 <div class="row">
+		 	  {% for p in product_info %}
+            <div class="col-md-3 col-sm-6">
+                <div class="product_img">
+                    <img src="../media/{{ p.picture }}" class="img_width">
+                    
+                    <div class="hover-layer">
+                            <div class="hover_btn">
+                                <a href="{% url 'view_cart' product_id=p.id  %}"><button class="btn2"><i class="fa fa-shopping-cart"></i>&nbsp ADD TO CART</button></a>
+                            </div>
+                    </div>   
+                </div>
+            </div>
+            {% endfor %}
+           
+        </div>  
+    </div>      
+								
+	
+           	
+{% endif %}
+
+{% endblock %}

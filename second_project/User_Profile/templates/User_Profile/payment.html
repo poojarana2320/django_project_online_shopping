@@ -1,0 +1,50 @@
+{% extends 'User_Profile/base.html' %}
+{% load static %}
+{% block content %}
+<div class="menu">
+	<div class="container">
+	   
+			<div class="left-menu">
+				<ul>
+					<li>
+						Welcome:{{ user.username}}    
+					</li>
+					<li>
+						<a href="{% url 'login' %}">Home</a>
+					</li>
+				</ul>  
+			</div>
+				
+			<div class="right-menu">
+				<ul>
+					<li>
+						<a href="{% url 'view' %}">My Account</a>
+					</li>
+					<li>
+						<a href="{% url 'update' %}">Update Image</a>
+					</li>
+					<li>
+						<a href="{% url 'showcart' %}">Cart</a>
+					</li>
+					<li>
+						<a href="{% url 'delete' %}">Delete Account</a>
+					</li>
+					<li>
+						<a href="{% url 'logout' %}">logout</a>
+					</li>
+
+				</ul>  
+			</div>   
+		
+	</div> 
+</div>
+	
+{% if cart %}	
+		
+	<h2>Paid sucessfully..</h2>
+
+	<div class="checkout_color">
+		<a href="{% url 'product' %}"><h2>Continue shopping</h2></a>
+	</div>
+{% endif %}		
+{% endblock %}
